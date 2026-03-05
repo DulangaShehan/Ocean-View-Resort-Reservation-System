@@ -1,0 +1,733 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* ==================== BEACH OCEAN BACKGROUND ==================== */
+.landing-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #1a4d6d 0%, #2d7399 30%, #4a9ec9 60%, #87CEEB 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Animated stars/sparkles */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.star:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { top: 15%; left: 30%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 10%; left: 50%; animation-delay: 1s; }
+.star:nth-child(4) { top: 25%; left: 70%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 18%; left: 85%; animation-delay: 2s; }
+.star:nth-child(6) { top: 30%; left: 20%; animation-delay: 0.8s; }
+.star:nth-child(7) { top: 12%; left: 65%; animation-delay: 1.2s; }
+.star:nth-child(8) { top: 22%; left: 45%; animation-delay: 1.8s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Elegant Sun/Moon */
+.sun {
+    position: absolute;
+    top: 60px;
+    right: 120px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #FFE5B4 0%, #FFD700 50%, #FFA500 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 80px rgba(255, 215, 0, 0.6),
+                0 0 120px rgba(255, 215, 0, 0.4);
+    animation: sunGlow 4s ease-in-out infinite;
+}
+
+@keyframes sunGlow {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 80px rgba(255, 215, 0, 0.6),
+                    0 0 120px rgba(255, 215, 0, 0.4);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 100px rgba(255, 215, 0, 0.7),
+                    0 0 150px rgba(255, 215, 0, 0.5);
+    }
+}
+
+/* Realistic Clouds */
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 100px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: cloudDrift 30s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 100px;
+}
+
+.cloud1 {
+    width: 120px;
+    height: 50px;
+    top: 80px;
+    left: -200px;
+}
+
+.cloud1::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 15px;
+}
+
+.cloud1::after {
+    width: 70px;
+    height: 50px;
+    top: -20px;
+    right: 15px;
+}
+
+.cloud2 {
+    width: 100px;
+    height: 45px;
+    top: 140px;
+    left: -250px;
+    animation-delay: 8s;
+    animation-duration: 35s;
+}
+
+.cloud2::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 12px;
+}
+
+.cloud2::after {
+    width: 60px;
+    height: 45px;
+    top: -18px;
+    right: 12px;
+}
+
+.cloud3 {
+    width: 90px;
+    height: 40px;
+    top: 200px;
+    left: -180px;
+    animation-delay: 15s;
+    animation-duration: 28s;
+}
+
+.cloud3::before {
+    width: 45px;
+    height: 45px;
+    top: -22px;
+    left: 10px;
+}
+
+.cloud3::after {
+    width: 55px;
+    height: 40px;
+    top: -15px;
+    right: 10px;
+}
+
+@keyframes cloudDrift {
+    0% { 
+        left: -250px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    90% {
+        opacity: 0.9;
+    }
+    100% { 
+        left: calc(100% + 250px);
+        opacity: 0;
+    }
+}
+
+/* Seagulls */
+.seagull {
+    position: absolute;
+    font-size: 24px;
+    animation: fly 25s linear infinite;
+    opacity: 0.8;
+}
+
+.seagull1 {
+    top: 100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.seagull2 {
+    top: 150px;
+    left: -150px;
+    animation-delay: 8s;
+    font-size: 20px;
+}
+
+.seagull3 {
+    top: 180px;
+    left: -120px;
+    animation-delay: 16s;
+    font-size: 22px;
+}
+
+@keyframes fly {
+    0% {
+        left: -100px;
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-15px);
+    }
+    100% {
+        left: calc(100% + 100px);
+        transform: translateY(0);
+    }
+}
+
+/* Beautiful Ocean Waves */
+.waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+}
+
+.wave1 {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%2387CEEB" fill-opacity="0.4"/></svg>');
+    background-size: 1200px 120px;
+    animation: wave 12s linear infinite;
+    opacity: 0.4;
+    z-index: 3;
+}
+
+.wave2 {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%2366b3d9" fill-opacity="0.6"/></svg>');
+    background-size: 1200px 120px;
+    animation: wave 18s linear infinite reverse;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.wave3 {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%234a9ec9" fill-opacity="0.8"/></svg>');
+    background-size: 1200px 120px;
+    animation: wave 15s linear infinite;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Tropical Fish */
+.fish {
+    position: absolute;
+    font-size: 32px;
+    z-index: 5;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.fish-ltr {
+    animation: swimRTL 20s linear infinite;
+}
+
+.fish1 {
+    bottom: 140px;
+    right: -60px;
+    animation-delay: 0s;
+}
+
+.fish2 {
+    bottom: 180px;
+    right: -90px;
+    animation-delay: 7s;
+    font-size: 28px;
+}
+
+.fish3 {
+    bottom: 220px;
+    right: -120px;
+    animation-delay: 14s;
+    font-size: 36px;
+}
+
+@keyframes swimRTL {
+    0% { 
+        right: -120px;
+        transform: scaleX(1) translateY(0);
+    }
+    25% {
+        transform: scaleX(1) translateY(-10px);
+    }
+    50% {
+        transform: scaleX(1) translateY(0);
+    }
+    75% {
+        transform: scaleX(1) translateY(10px);
+    }
+    100% { 
+        right: calc(100% + 120px);
+        transform: scaleX(1) translateY(0);
+    }
+}
+
+.fish-rtl {
+    animation: swimLTR 22s linear infinite;
+}
+
+.fish4 {
+    bottom: 160px;
+    left: -60px;
+    animation-delay: 3s;
+    font-size: 30px;
+}
+
+.fish5 {
+    bottom: 200px;
+    left: -90px;
+    animation-delay: 11s;
+    font-size: 34px;
+}
+
+@keyframes swimLTR {
+    0% { 
+        left: -120px;
+        transform: scaleX(-1) translateY(0);
+    }
+    25% {
+        transform: scaleX(-1) translateY(10px);
+    }
+    50% {
+        transform: scaleX(-1) translateY(0);
+    }
+    75% {
+        transform: scaleX(-1) translateY(-10px);
+    }
+    100% { 
+        left: calc(100% + 120px);
+        transform: scaleX(-1) translateY(0);
+    }
+}
+
+/* Tropical Palm Trees */
+.palm-tree {
+    position: absolute;
+    bottom: 220px;
+    font-size: 80px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    animation: palmSway 4s ease-in-out infinite;
+    z-index: 8;
+}
+
+.palm-left {
+    left: 80px;
+}
+
+.palm-right {
+    right: 80px;
+    animation-delay: 2s;
+}
+
+@keyframes palmSway {
+    0%, 100% { 
+        transform: rotate(-8deg);
+    }
+    50% { 
+        transform: rotate(8deg);
+    }
+}
+
+/* Beach Elements */
+.beach-umbrella {
+    position: absolute;
+    bottom: 240px;
+    font-size: 50px;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    z-index: 7;
+}
+
+.umbrella-left {
+    left: 200px;
+    animation: umbrellaRotate 6s ease-in-out infinite;
+}
+
+.umbrella-right {
+    right: 200px;
+    animation: umbrellaRotate 6s ease-in-out infinite reverse;
+    animation-delay: 3s;
+}
+
+@keyframes umbrellaRotate {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+/* Sailboat */
+.sailboat {
+    position: absolute;
+    bottom: 160px;
+    left: -100px;
+    font-size: 40px;
+    animation: sail 35s linear infinite;
+    z-index: 6;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes sail {
+    0% {
+        left: -100px;
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-15px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-10px);
+    }
+    100% {
+        left: calc(100% + 100px);
+        transform: translateY(0);
+    }
+}
+
+/* ==================== LOGIN CONTAINER STYLES ==================== */
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 35px;
+    color: rgb(27, 33, 80);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    stroke: rgb(255, 128, 0);
+}
+
+.login-header h1 {
+    font-size: 40px;
+    font-weight: 840;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+}
+
+.login-card h2 {
+    color: #334155;
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login-description {
+    color: #64748B;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #475569;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.input-icon {
+    width: 16px;
+    height: 16px;
+    stroke: #64748B;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #334155;
+    transition: all 0.3s ease;
+    background: #F8FAFC;
+}
+
+.form-group input:focus {
+    border-color: #0EA5E9;
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748B;
+    cursor: pointer;
+}
+
+.remember-me input {
+    width: 16px;
+    height: 16px;
+    accent-color: #0EA5E9;
+    cursor: pointer;
+}
+
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4);
+    background: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 100%);
+}
+
+.button-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    .palm-tree {
+        font-size: 60px;
+        bottom: 200px;
+    }
+
+    .beach-umbrella {
+        font-size: 40px;
+        bottom: 220px;
+    }
+
+    .umbrella-left {
+        left: 150px;
+    }
+
+    .umbrella-right {
+        right: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sun {
+        width: 70px;
+        height: 70px;
+        top: 40px;
+        right: 60px;
+    }
+
+    .palm-tree {
+        font-size: 50px;
+        bottom: 180px;
+    }
+
+    .palm-left {
+        left: 30px;
+    }
+
+    .palm-right {
+        right: 30px;
+    }
+
+    .beach-umbrella {
+        font-size: 30px;
+        bottom: 200px;
+    }
+
+    .umbrella-left {
+        left: 100px;
+    }
+
+    .umbrella-right {
+        right: 100px;
+    }
+
+    .sailboat {
+        font-size: 30px;
+    }
+
+    .seagull {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container { padding: 15px; }
+    .login-card     { padding: 30px 25px; }
+    .login-header h1 { font-size: 28px; }
+    .login-card h2   { font-size: 24px; }
+    
+    .beach-umbrella {
+        display: none;
+    }
+
+    .palm-tree {
+        font-size: 40px;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.stars,
+.sun,
+.cloud,
+.seagull,
+.palm-tree,
+.beach-umbrella,
+.sailboat,
+.waves,
+.fish {
+    display: none;
+}
+
+.landing-container {
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc);
+}
